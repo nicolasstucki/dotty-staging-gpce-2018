@@ -4,4 +4,4 @@ jdk:
   - oraclejdk8
 
 script:
-  - sbt test
+  - sbt run
