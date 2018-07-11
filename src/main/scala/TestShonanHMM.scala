@@ -1,9 +1,9 @@
-import dotty.tools.dotc.quoted.Toolbox._
 import scala.quoted._
 
 import shonan.hmm._
 
 object TestShonanHMM {
+  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
 
   def runTests(): Unit = {
     {

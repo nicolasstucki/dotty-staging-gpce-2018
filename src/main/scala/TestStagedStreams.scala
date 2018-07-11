@@ -1,7 +1,7 @@
-import dotty.tools.dotc.quoted.Toolbox._
 import scala.quoted._
 
 object TestStagedStreams {
+  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
 
   def runTests(): Unit = {
    println("streams")
