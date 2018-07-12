@@ -34,9 +34,9 @@ object TestStymonas {
       .fold('{0}, ((a: Expr[Int], b : Expr[Int]) => '{ ~a + ~b }))
   }
 
-  def test6() = '{ (array: Array[Int]) =>
-    ~Stream.of('(array))
-      .flatMap((d: Expr[Int]) => Stream.of('(array)).take('{2}))
+  def test6() = '{ (array1: Array[Int], array2: Array[Int]) =>
+    ~Stream.of('(array1))
+      .flatMap((d: Expr[Int]) => Stream.of('(array2)).take('{2}))
       .take('{5})
       .fold('{0}, ((a: Expr[Int], b : Expr[Int]) => '{ ~a + ~b }))
   }
@@ -161,19 +161,19 @@ object TestStymonas {
 
     assertEqual(
       test6().show,
-      """((array: scala.Array[scala.Int]) => {
+      """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array.length
+        |  var x: scala.Int = array1.length
         |  var x: scala.Int = 0
         |  var x: scala.Int = 5
         |  while (x.>(0).&&(x.<(x))) {
-        |    val el: scala.Int = array.apply(x)
+        |    val el: scala.Int = array1.apply(x)
         |    x = x.+(1)
-        |    var x: scala.Int = array.length
+        |    var x: scala.Int = array2.length
         |    var x: scala.Int = 0
         |    var x: scala.Int = 2
         |    while (x.>(0).&&(x.>(0).&&(x.<(x)))) {
-        |      val el: scala.Int = array.apply(x)
+        |      val el: scala.Int = array2.apply(x)
         |      x = x.+(1)
         |      x = x.-(1)
         |      x = x.-(1)
@@ -183,8 +183,8 @@ object TestStymonas {
         |  x
         |})""".stripMargin)
     val t6 = test6().run
-    assertEqual(t6(Array(1, 2, 3)), 7)
-    assertEqual(t6(Array(1, 2, 3, 4)), 7)
+    assertEqual(t6(Array(1, 1, 1), Array(1, 2, 3)), 7)
+    assertEqual(t6(Array(1, 1, 1, 1), Array(1, 2, 3, 4)), 7)
 
     assertEqual(
       test7().show,
@@ -271,12 +271,12 @@ object TestStymonas {
         |  var x: scala.Int = 0
         |  var x: scala.Int = array.length
         |  var x: scala.Int = 0
-        |  var x: scala.Function1[scala.Unit, scala.Unit] = ((_$5: scala.Unit) => ())
+        |  var x: scala.Function1[scala.Unit, scala.Unit] = ((_$2: scala.Unit) => ())
         |  var x: scala.Boolean = true
         |  var x: scala.Int = {
         |    null.asInstanceOf[scala.Int]
         |  }
-        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$6: scala.Unit) => {
+        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$3: scala.Unit) => {
         |    x = x.<(x)
         |    if (x) {
         |      val el: scala.Int = array.apply(x)
@@ -284,7 +284,7 @@ object TestStymonas {
         |      var x: scala.Int = array.length
         |      var x: scala.Int = 0
         |      val oldnadv: scala.Function1[scala.Unit, scala.Unit] = x
-        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$4: scala.Unit) => if (x.<(x)) {
+        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$1: scala.Unit) => if (x.<(x)) {
         |        val el: scala.Int = array.apply(x)
         |        x = x.+(1)
         |        x = el.+(el)
