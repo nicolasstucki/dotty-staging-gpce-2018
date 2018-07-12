@@ -22,7 +22,7 @@ class S {
   var vFaZ : Array[Int] = _
   var vZaF : Array[Int] = _
 
-  @Setup
+  @Setup(Level.Trial)
   def prepare() : Unit = {
     v          = Array.tabulate(N)(i => i.toInt % 10)
     vHi        = Array.tabulate(10000000)(i => i.toInt % 10)

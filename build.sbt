@@ -12,5 +12,11 @@ lazy val root = project
       "ch.epfl.lamp" % "dotty_0.9" % dottyVersion,
       "ch.epfl.lamp" % "dotty_0.9" % dottyVersion % "test->runtime",
       "com.novocode" % "junit-interface" % "0.11" % "test"
-    )
+    ),
+
+    javaOptions ++= Seq("-Xms6g", "-Xmx6g", "-Xss4m",
+			   "-XX:+CMSClassUnloadingEnabled",
+			   "-XX:ReservedCodeCacheSize=256m",
+			   "-XX:-TieredCompilation", "-XX:+UseNUMA"
+    )  
   ).enablePlugins(JmhPlugin)
