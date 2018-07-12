@@ -209,12 +209,12 @@ object TestStymonas {
         |  var x: scala.Int = 0
         |  var x: scala.Int = array1.length
         |  var x: scala.Int = 0
-        |  var x: scala.Function1[scala.Unit, scala.Unit] = ((_$7: scala.Unit) => ())
+        |  var x: scala.Function1[scala.Unit, scala.Unit] = ((_$8: scala.Unit) => ())
         |  var x: scala.Boolean = true
         |  var x: scala.Int = {
         |    null.asInstanceOf[scala.Int]
         |  }
-        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$8: scala.Unit) => {
+        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$9: scala.Unit) => {
         |    x = x.<(x)
         |    if (x) {
         |      val el: scala.Int = array1.apply(x)
@@ -222,7 +222,7 @@ object TestStymonas {
         |      var x: scala.Int = array2.length
         |      var x: scala.Int = 0
         |      val oldnadv: scala.Function1[scala.Unit, scala.Unit] = x
-        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$6: scala.Unit) => if (x.<(x)) {
+        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$7: scala.Unit) => if (x.<(x)) {
         |        val el: scala.Int = array2.apply(x)
         |        x = x.+(1)
         |        x = el.+(el)
