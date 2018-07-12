@@ -13,4 +13,4 @@ lazy val root = project
       "ch.epfl.lamp" % "dotty_0.9" % dottyVersion % "test->runtime",
       "com.novocode" % "junit-interface" % "0.11" % "test"
     )
-  )
+  ).enablePlugins(JmhPlugin)
