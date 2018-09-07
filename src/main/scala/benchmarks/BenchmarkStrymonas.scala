@@ -9,7 +9,9 @@ import scala.collection.mutable.ArrayBuffer
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @BenchmarkMode(Array(Mode.AverageTime))
 @State(Scope.Thread)
-@Fork(1)
+@Measurement(iterations = 30)
+@Warmup(30)
+@Fork(3)
 class S {
   implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
   import strymonas.TestPipelines._
@@ -175,12 +177,12 @@ class S {
     val res : Int = flatMap_takeS(v, vLo)
     res
   }
-  
+
   @Benchmark
   def flatMap_take_staged_init () : Unit = {
     zip_after_flatMap().run
   }
-  
+
   @Benchmark
   def flatMap_take_staged_init_fresh_compiler () : Unit = {
     implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
