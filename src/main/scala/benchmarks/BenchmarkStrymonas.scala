@@ -58,9 +58,31 @@ class S {
   }
 
   @Benchmark
+  def sum_staged_init () : Unit = {
+    sum().run
+  }
+
+  @Benchmark
+  def sum_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    sum().run
+  }
+
+  @Benchmark
   def sumOfSquares_staged () : Int = {
     val res : Int = sumOfSquaresS(v)
     res
+  }
+
+  @Benchmark
+  def sumOfSquares_staged_init () : Unit = {
+    sumOfSquares().run
+  }
+
+  @Benchmark
+  def sumOfSquares_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    sumOfSquares().run
   }
 
   @Benchmark
@@ -70,9 +92,31 @@ class S {
   }
 
   @Benchmark
+  def sumOfSquaresEven_staged_init () : Unit = {
+    sumOfSquaresEven().run
+  }
+
+  @Benchmark
+  def sumOfSquaresEven_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    sumOfSquaresEven().run
+  }
+
+  @Benchmark
   def cart_staged () : Int = {
     val res : Int = cartS(vHi, vLo)
     res
+  }
+
+  @Benchmark
+  def cart_staged_init () : Unit = {
+    cart().run
+  }
+
+  @Benchmark
+  def cart_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    cart().run
   }
 
   @Benchmark
@@ -82,9 +126,31 @@ class S {
   }
 
   @Benchmark
+  def dotProduct_staged_init () : Unit = {
+    dotProduct().run
+  }
+
+  @Benchmark
+  def dotProduct_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    dotProduct().run
+  }
+
+  @Benchmark
   def flatMap_after_zip_staged () : Int = {
     val res : Int = flatMap_after_zipS(vFaZ, vFaZ)
     res
+  }
+
+  @Benchmark
+  def flatMap_after_zip_staged_init () : Unit = {
+    flatMap_after_zip().run
+  }
+
+  @Benchmark
+  def flatMap_after_zip_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    flatMap_after_zip().run
   }
 
   @Benchmark
@@ -94,14 +160,47 @@ class S {
   }
 
   @Benchmark
+  def zip_after_flatMap_staged_init () : Unit = {
+    flatMap_take().run
+  }
+
+  @Benchmark
+  def zip_after_flatMap_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    flatMap_take().run
+  }
+
+  @Benchmark
   def flatMap_take_staged () : Int = {
     val res : Int = flatMap_takeS(v, vLo)
     res
   }
   
   @Benchmark
+  def flatMap_take_staged_init () : Unit = {
+    zip_after_flatMap().run
+  }
+  
+  @Benchmark
+  def flatMap_take_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    zip_after_flatMap().run
+  }
+
+  @Benchmark
   def zip_flat_flat_staged () : Int = {
     val res : Int = zip_flat_flatS(v, vLo)
     res
-  }  
+  }
+
+  @Benchmark
+  def zip_flat_flat_staged_init () : Unit = {
+    zip_flat_flat().run
+  }
+
+  @Benchmark
+  def zip_flat_flat_staged_init_fresh_compiler () : Unit = {
+    implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+    zip_flat_flat().run
+  }
 }
