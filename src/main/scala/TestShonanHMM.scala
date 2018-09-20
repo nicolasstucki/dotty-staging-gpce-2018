@@ -3,7 +3,7 @@ import scala.quoted._
 import shonan.hmm._
 
 object TestShonanHMM {
-  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+  implicit val toolbox: scala.quoted.Toolbox = scala.quoted.Toolbox.make
 
   def runTests(): Unit = {
     {
@@ -69,10 +69,10 @@ object TestShonanHMM {
         |  while (i.<(n)) {
         |    vout.update(i, {
         |      var sum: scala.Int = 0
-        |      var i: scala.Int = 0
-        |      while (i.<(m)) {
-        |        sum = sum.+(v.apply(i).*(a.apply(i).apply(i)))
-        |        i = i.+(1)
+        |      var i$2: scala.Int = 0
+        |      while (i$2.<(m)) {
+        |        sum = sum.+(v.apply(i$2).*(a.apply(i).apply(i$2)))
+        |        i$2 = i$2.+(1)
         |      }
         |      (sum: scala.Int)
         |    })
@@ -98,49 +98,49 @@ object TestShonanHMM {
         |      scala.reflect.ClassTag.apply[scala.Array[scala.Int]](scala.Predef.classOf[scala.Array[scala.Int]])
         |    })
         |    array.update(0, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 5)
-        |      array.update(1, 0)
-        |      array.update(2, 0)
-        |      array.update(3, 5)
-        |      array.update(4, 0)
-        |      array
+        |      val array$2: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$2.update(0, 5)
+        |      array$2.update(1, 0)
+        |      array$2.update(2, 0)
+        |      array$2.update(3, 5)
+        |      array$2.update(4, 0)
+        |      array$2
         |    })
         |    array.update(1, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 10)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$3: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$3.update(0, 0)
+        |      array$3.update(1, 0)
+        |      array$3.update(2, 10)
+        |      array$3.update(3, 0)
+        |      array$3.update(4, 0)
+        |      array$3
         |    })
         |    array.update(2, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 10)
-        |      array.update(2, 0)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$4: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$4.update(0, 0)
+        |      array$4.update(1, 10)
+        |      array$4.update(2, 0)
+        |      array$4.update(3, 0)
+        |      array$4.update(4, 0)
+        |      array$4
         |    })
         |    array.update(3, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 2)
-        |      array.update(3, 3)
-        |      array.update(4, 5)
-        |      array
+        |      val array$5: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$5.update(0, 0)
+        |      array$5.update(1, 0)
+        |      array$5.update(2, 2)
+        |      array$5.update(3, 3)
+        |      array$5.update(4, 5)
+        |      array$5
         |    })
         |    array.update(4, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 3)
-        |      array.update(3, 0)
-        |      array.update(4, 7)
-        |      array
+        |      val array$6: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$6.update(0, 0)
+        |      array$6.update(1, 0)
+        |      array$6.update(2, 3)
+        |      array$6.update(3, 0)
+        |      array$6.update(4, 7)
+        |      array$6
         |    })
         |    array
         |  }
@@ -164,49 +164,49 @@ object TestShonanHMM {
         |      scala.reflect.ClassTag.apply[scala.Array[scala.Int]](scala.Predef.classOf[scala.Array[scala.Int]])
         |    })
         |    array.update(0, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 5)
-        |      array.update(1, 0)
-        |      array.update(2, 0)
-        |      array.update(3, 5)
-        |      array.update(4, 0)
-        |      array
+        |      val array$2: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$2.update(0, 5)
+        |      array$2.update(1, 0)
+        |      array$2.update(2, 0)
+        |      array$2.update(3, 5)
+        |      array$2.update(4, 0)
+        |      array$2
         |    })
         |    array.update(1, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 10)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$3: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$3.update(0, 0)
+        |      array$3.update(1, 0)
+        |      array$3.update(2, 10)
+        |      array$3.update(3, 0)
+        |      array$3.update(4, 0)
+        |      array$3
         |    })
         |    array.update(2, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 10)
-        |      array.update(2, 0)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$4: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$4.update(0, 0)
+        |      array$4.update(1, 10)
+        |      array$4.update(2, 0)
+        |      array$4.update(3, 0)
+        |      array$4.update(4, 0)
+        |      array$4
         |    })
         |    array.update(3, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 2)
-        |      array.update(3, 3)
-        |      array.update(4, 5)
-        |      array
+        |      val array$5: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$5.update(0, 0)
+        |      array$5.update(1, 0)
+        |      array$5.update(2, 2)
+        |      array$5.update(3, 3)
+        |      array$5.update(4, 5)
+        |      array$5
         |    })
         |    array.update(4, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 3)
-        |      array.update(3, 0)
-        |      array.update(4, 7)
-        |      array
+        |      val array$6: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$6.update(0, 0)
+        |      array$6.update(1, 0)
+        |      array$6.update(2, 3)
+        |      array$6.update(3, 0)
+        |      array$6.update(4, 7)
+        |      array$6
         |    })
         |    array
         |  }
@@ -230,49 +230,49 @@ object TestShonanHMM {
         |      scala.reflect.ClassTag.apply[scala.Array[scala.Int]](scala.Predef.classOf[scala.Array[scala.Int]])
         |    })
         |    array.update(0, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 5)
-        |      array.update(1, 0)
-        |      array.update(2, 0)
-        |      array.update(3, 5)
-        |      array.update(4, 0)
-        |      array
+        |      val array$2: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$2.update(0, 5)
+        |      array$2.update(1, 0)
+        |      array$2.update(2, 0)
+        |      array$2.update(3, 5)
+        |      array$2.update(4, 0)
+        |      array$2
         |    })
         |    array.update(1, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 10)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$3: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$3.update(0, 0)
+        |      array$3.update(1, 0)
+        |      array$3.update(2, 10)
+        |      array$3.update(3, 0)
+        |      array$3.update(4, 0)
+        |      array$3
         |    })
         |    array.update(2, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 10)
-        |      array.update(2, 0)
-        |      array.update(3, 0)
-        |      array.update(4, 0)
-        |      array
+        |      val array$4: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$4.update(0, 0)
+        |      array$4.update(1, 10)
+        |      array$4.update(2, 0)
+        |      array$4.update(3, 0)
+        |      array$4.update(4, 0)
+        |      array$4
         |    })
         |    array.update(3, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 2)
-        |      array.update(3, 3)
-        |      array.update(4, 5)
-        |      array
+        |      val array$5: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$5.update(0, 0)
+        |      array$5.update(1, 0)
+        |      array$5.update(2, 2)
+        |      array$5.update(3, 3)
+        |      array$5.update(4, 5)
+        |      array$5
         |    })
         |    array.update(4, {
-        |      val array: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
-        |      array.update(0, 0)
-        |      array.update(1, 0)
-        |      array.update(2, 3)
-        |      array.update(3, 0)
-        |      array.update(4, 7)
-        |      array
+        |      val array$6: scala.Array[scala.Int] = new scala.Array[scala.Int](5)
+        |      array$6.update(0, 0)
+        |      array$6.update(1, 0)
+        |      array$6.update(2, 3)
+        |      array$6.update(3, 0)
+        |      array$6.update(4, 7)
+        |      array$6
         |    })
         |    array
         |  }

@@ -3,7 +3,7 @@ package snippets
 import scala.quoted._
 
 object Section4 {
-  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+  implicit val toolbox: scala.quoted.Toolbox = scala.quoted.Toolbox.make
 
   def sumNCode(size: Int, arr: Expr[Array[Int]]): Expr[Int] = '{
     assert((~arr).length == ~size.toExpr)

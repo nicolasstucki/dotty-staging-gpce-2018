@@ -3,7 +3,7 @@ import scala.quoted._
 import strymonas._
 
 object TestStymonas {
-  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+  implicit val toolbox: scala.quoted.Toolbox = scala.quoted.Toolbox.make
 
   import strymonas.TestPipelines._
 
@@ -12,11 +12,11 @@ object TestStymonas {
       sum().show,
       """((array: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x)) {
-        |    val el: scala.Int = array.apply(x)
-        |    x = x.+(1)
+        |  var x$2: scala.Int = array.length
+        |  var x$3: scala.Int = 0
+        |  while (x$3.<(x$2)) {
+        |    val el: scala.Int = array.apply(x$3)
+        |    x$3 = x$3.+(1)
         |    x = x.+(el)
         |  }
         |  x
@@ -29,11 +29,11 @@ object TestStymonas {
       sumOfSquares().show,
       """((array: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x)) {
-        |    val el: scala.Int = array.apply(x)
-        |    x = x.+(1)
+        |  var x$2: scala.Int = array.length
+        |  var x$3: scala.Int = 0
+        |  while (x$3.<(x$2)) {
+        |    val el: scala.Int = array.apply(x$3)
+        |    x$3 = x$3.+(1)
         |    x = x.+(el.*(el))
         |  }
         |  x
@@ -46,17 +46,17 @@ object TestStymonas {
       cart().show,
       """((vHi: scala.Array[scala.Int], vLo: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = vHi.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x)) {
-        |    val el: scala.Int = vHi.apply(x)
-        |    x = x.+(1)
-        |    var x: scala.Int = vLo.length
-        |    var x: scala.Int = 0
-        |    while (x.<(x)) {
-        |      val el: scala.Int = vLo.apply(x)
-        |      x = x.+(1)
-        |      x = x.+(el.*(el))
+        |  var x$2: scala.Int = vHi.length
+        |  var x$3: scala.Int = 0
+        |  while (x$3.<(x$2)) {
+        |    val el: scala.Int = vHi.apply(x$3)
+        |    x$3 = x$3.+(1)
+        |    var x$4: scala.Int = vLo.length
+        |    var x$5: scala.Int = 0
+        |    while (x$5.<(x$4)) {
+        |      val el$2: scala.Int = vLo.apply(x$5)
+        |      x$5 = x$5.+(1)
+        |      x = x.+(el.*(el$2))
         |    }
         |  }
         |  x
@@ -69,11 +69,11 @@ object TestStymonas {
       filter().show,
       """((array: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x)) {
-        |    val el: scala.Int = array.apply(x)
-        |    x = x.+(1)
+        |  var x$2: scala.Int = array.length
+        |  var x$3: scala.Int = 0
+        |  while (x$3.<(x$2)) {
+        |    val el: scala.Int = array.apply(x$3)
+        |    x$3 = x$3.+(1)
         |    if (el.%(2).==(0)) x = x.+(el) else ()
         |  }
         |  x
@@ -86,13 +86,13 @@ object TestStymonas {
       take().show,
       """((array: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Int = 2
-        |  while (x.>(0).&&(x.<(x))) {
-        |    val el: scala.Int = array.apply(x)
-        |    x = x.+(1)
-        |    x = x.-(1)
+        |  var x$2: scala.Int = array.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Int = 2
+        |  while (x$4.>(0).&&(x$3.<(x$2))) {
+        |    val el: scala.Int = array.apply(x$3)
+        |    x$3 = x$3.+(1)
+        |    x$4 = x$4.-(1)
         |    x = x.+(el)
         |  }
         |  x
@@ -105,19 +105,19 @@ object TestStymonas {
       flatMap_take().show,
       """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Int = 20000000
-        |  while (x.>(0).&&(x.<(x))) {
-        |    val el: scala.Int = array1.apply(x)
-        |    x = x.+(1)
-        |    var x: scala.Int = array2.length
-        |    var x: scala.Int = 0
-        |    while (x.>(0).&&(x.<(x))) {
-        |      val el: scala.Int = array2.apply(x)
-        |      x = x.+(1)
-        |      x = x.-(1)
-        |      x = x.+(el)
+        |  var x$2: scala.Int = array1.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Int = 20000000
+        |  while (x$4.>(0).&&(x$3.<(x$2))) {
+        |    val el: scala.Int = array1.apply(x$3)
+        |    x$3 = x$3.+(1)
+        |    var x$5: scala.Int = array2.length
+        |    var x$6: scala.Int = 0
+        |    while (x$4.>(0).&&(x$6.<(x$5))) {
+        |      val el$2: scala.Int = array2.apply(x$6)
+        |      x$6 = x$6.+(1)
+        |      x$4 = x$4.-(1)
+        |      x = x.+(el$2)
         |    }
         |  }
         |  x
@@ -130,16 +130,16 @@ object TestStymonas {
       dotProduct().show,
       """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Int = array2.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x).&&(x.<(x))) {
-        |    val el: scala.Int = array1.apply(x)
-        |    x = x.+(1)
-        |    val el: scala.Int = array2.apply(x)
-        |    x = x.+(1)
-        |    x = x.+(el.+(el))
+        |  var x$2: scala.Int = array1.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Int = array2.length
+        |  var x$5: scala.Int = 0
+        |  while (x$3.<(x$2).&&(x$5.<(x$4))) {
+        |    val el: scala.Int = array1.apply(x$3)
+        |    x$3 = x$3.+(1)
+        |    val el$2: scala.Int = array2.apply(x$5)
+        |    x$5 = x$5.+(1)
+        |    x = x.+(el.+(el$2))
         |  }
         |  x
         |})""".stripMargin)
@@ -151,21 +151,21 @@ object TestStymonas {
       flatMap_after_zip().show,
       """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  while (x.<(x).&&(x.<(x))) {
-        |    val el: scala.Int = array1.apply(x)
-        |    x = x.+(1)
-        |    val el: scala.Int = array1.apply(x)
-        |    x = x.+(1)
-        |    var x: scala.Int = array2.length
-        |    var x: scala.Int = 0
-        |    while (x.<(x)) {
-        |      val el: scala.Int = array2.apply(x)
-        |      x = x.+(1)
-        |      x = x.+(el.+(el).+(el))
+        |  var x$2: scala.Int = array1.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Int = array1.length
+        |  var x$5: scala.Int = 0
+        |  while (x$3.<(x$2).&&(x$5.<(x$4))) {
+        |    val el: scala.Int = array1.apply(x$3)
+        |    x$3 = x$3.+(1)
+        |    val el$2: scala.Int = array1.apply(x$5)
+        |    x$5 = x$5.+(1)
+        |    var x$6: scala.Int = array2.length
+        |    var x$7: scala.Int = 0
+        |    while (x$7.<(x$6)) {
+        |      val el$3: scala.Int = array2.apply(x$7)
+        |      x$7 = x$7.+(1)
+        |      x = x.+(el.+(el$2).+(el$3))
         |    }
         |  }
         |  x
@@ -178,23 +178,23 @@ object TestStymonas {
       zip_after_flatMap().show,
       """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Boolean = x.<(x)
-        |  while (x.&&(x.<(x))) {
-        |    val el: scala.Int = array1.apply(x)
-        |    x = x.+(1)
-        |    var x: scala.Int = array2.length
-        |    var x: scala.Int = 0
-        |    while (x.&&(x.<(x))) {
-        |      val el: scala.Int = array2.apply(x)
-        |      x = x.+(1)
-        |      val el: scala.Int = array1.apply(x)
-        |      x = x.+(1)
-        |      x = x.+(el.+(el).+(el))
-        |      x = x.<(x)
+        |  var x$2: scala.Int = array1.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Int = array1.length
+        |  var x$5: scala.Int = 0
+        |  var x$6: scala.Boolean = x$3.<(x$2)
+        |  while (x$6.&&(x$5.<(x$4))) {
+        |    val el: scala.Int = array1.apply(x$5)
+        |    x$5 = x$5.+(1)
+        |    var x$7: scala.Int = array2.length
+        |    var x$8: scala.Int = 0
+        |    while (x$6.&&(x$8.<(x$7))) {
+        |      val el$2: scala.Int = array2.apply(x$8)
+        |      x$8 = x$8.+(1)
+        |      val el$3: scala.Int = array1.apply(x$3)
+        |      x$3 = x$3.+(1)
+        |      x = x.+(el.+(el$2).+(el$3))
+        |      x$6 = x$3.<(x$2)
         |    }
         |  }
         |  x
@@ -207,53 +207,53 @@ object TestStymonas {
       zip_flat_flat().show,
       """((array1: scala.Array[scala.Int], array2: scala.Array[scala.Int]) => {
         |  var x: scala.Int = 0
-        |  var x: scala.Int = array1.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Function1[scala.Unit, scala.Unit] = ((_$8: scala.Unit) => ())
-        |  var x: scala.Boolean = true
-        |  var x: scala.Int = {
+        |  var x$2: scala.Int = array1.length
+        |  var x$3: scala.Int = 0
+        |  var x$4: scala.Function1[scala.Unit, scala.Unit] = ((_$6: scala.Unit) => ())
+        |  var x$5: scala.Boolean = true
+        |  var x$6: scala.Int = {
         |    null.asInstanceOf[scala.Int]
         |  }
-        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$9: scala.Unit) => {
-        |    x = x.<(x)
-        |    if (x) {
-        |      val el: scala.Int = array1.apply(x)
-        |      x = x.+(1)
-        |      var x: scala.Int = array2.length
-        |      var x: scala.Int = 0
-        |      val oldnadv: scala.Function1[scala.Unit, scala.Unit] = x
-        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$7: scala.Unit) => if (x.<(x)) {
-        |        val el: scala.Int = array2.apply(x)
-        |        x = x.+(1)
-        |        x = el.+(el)
+        |  def adv: scala.Function1[scala.Unit, scala.Unit] = ((_$7: scala.Unit) => {
+        |    x$5 = x$3.<(x$2)
+        |    if (x$5) {
+        |      val el: scala.Int = array1.apply(x$3)
+        |      x$3 = x$3.+(1)
+        |      var x$7: scala.Int = array2.length
+        |      var x$8: scala.Int = 0
+        |      val oldnadv: scala.Function1[scala.Unit, scala.Unit] = x$4
+        |      val adv1: scala.Function1[scala.Unit, scala.Unit] = ((_$5: scala.Unit) => if (x$8.<(x$7)) {
+        |        val el$2: scala.Int = array2.apply(x$8)
+        |        x$8 = x$8.+(1)
+        |        x$6 = el.+(el$2)
         |      } else {
-        |        x = oldnadv
+        |        x$4 = oldnadv
         |        oldnadv.apply(())
         |      })
-        |      x = adv1
+        |      x$4 = adv1
         |      adv1.apply(())
         |    } else ()
         |  })
-        |  x = adv
+        |  x$4 = adv
         |  adv.apply(())
-        |  var x: scala.Int = array2.length
-        |  var x: scala.Int = 0
-        |  var x: scala.Boolean = x
-        |  var x: scala.Int = 20000000
-        |  while (x.>(0).&&(x.&&(x.<(x)))) {
-        |    val el: scala.Int = array2.apply(x)
-        |    x = x.+(1)
-        |    var x: scala.Int = array1.length
-        |    var x: scala.Int = 0
-        |    while (x.>(0).&&(x.&&(x.<(x)))) {
-        |      val el: scala.Int = array1.apply(x)
-        |      x = x.+(1)
-        |      var el: scala.Int = x
-        |      val f: scala.Function1[scala.Unit, scala.Unit] = x
+        |  var x$9: scala.Int = array2.length
+        |  var x$10: scala.Int = 0
+        |  var x$11: scala.Boolean = x$5
+        |  var x$12: scala.Int = 20000000
+        |  while (x$12.>(0).&&(x$11.&&(x$10.<(x$9)))) {
+        |    val el$3: scala.Int = array2.apply(x$10)
+        |    x$10 = x$10.+(1)
+        |    var x$13: scala.Int = array1.length
+        |    var x$14: scala.Int = 0
+        |    while (x$12.>(0).&&(x$11.&&(x$14.<(x$13)))) {
+        |      val el$4: scala.Int = array1.apply(x$14)
+        |      x$14 = x$14.+(1)
+        |      var el$5: scala.Int = x$6
+        |      val f: scala.Function1[scala.Unit, scala.Unit] = x$4
         |      f.apply(())
-        |      x = x.-(1)
-        |      x = x.+(el.+(el.+(el)))
-        |      x = x
+        |      x$12 = x$12.-(1)
+        |      x = x.+(el$5.+(el$3.+(el$4)))
+        |      x$11 = x$5
         |    }
         |  }
         |  x

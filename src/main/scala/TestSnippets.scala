@@ -3,7 +3,7 @@ import scala.quoted._
 import snippets._
 
 object TestSnippets {
-  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+  implicit val toolbox: scala.quoted.Toolbox = scala.quoted.Toolbox.make
 
   def runTests(): Unit = {
     assertEqual(
@@ -40,7 +40,8 @@ object TestSnippets {
       """((arr: scala.Array[scala.Int]) => {
         |  { // inlined
         |    val assertion: scala.Boolean = arr.length.==(0.*(2).+(1).*(2).+(1))
-        |    if (assertion.unary_!) dotty.DottyPredef.assertFail() else ()
+        |    val DottyPredef$_this: dotty.DottyPredef = dotty.DottyPredef
+        |    if (assertion.unary_!) DottyPredef$_this.assertFail() else ()
         |  }
         |  var sum: scala.Int = 0
         |  sum = sum.+(arr.apply(0))
@@ -51,12 +52,13 @@ object TestSnippets {
         |})""".stripMargin)
 
     assertEqual(
-      ('{ (arr: Array[Int]) => ~Section5.staged('(arr), x => '(println(~x))) }).show,
+      ('{ (arr: Array[Int]) => ~Section5.staged('(arr), '(x => println(~x))) }).show,
       """((arr: scala.Array[scala.Int]) => {
         |  var i: scala.Int = 0
         |  while (i.<(arr.length)) {
         |    val element: scala.Int = arr.apply(i)
-        |    scala.Predef.println(element)
+        |    val x$1: scala.Int = element
+        |    scala.Predef.println(x$1.unary_~)
         |    i = i.+(1)
         |  }
         |})""".stripMargin)
