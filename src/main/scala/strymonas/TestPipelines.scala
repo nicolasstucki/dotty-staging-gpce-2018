@@ -5,7 +5,7 @@ import scala.quoted._
 
 object TestPipelines {
 
- def sum() = '{ (array: Array[Int]) =>
+ def sum(): Expr[Array[Int] => Int] = '{ (array: Array[Int]) =>
     ~Stream.of('(array))
       .fold('{0}, ((a: Expr[Int], b : Expr[Int]) => '{ ~a + ~b }))
   }

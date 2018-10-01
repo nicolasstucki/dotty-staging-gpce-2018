@@ -3,7 +3,7 @@ package snippets
 import scala.quoted._
 
 object Section3 {
-  implicit val toolbox: scala.quoted.Toolbox = dotty.tools.dotc.quoted.Toolbox.make
+  implicit val toolbox: scala.quoted.Toolbox = scala.quoted.Toolbox.make
 
   def staged[T](arr: Expr[Array[T]], f: Expr[T] => Expr[Unit])(implicit t: Type[T]): Expr[Unit] = '{
     var i: Int = 0
@@ -29,7 +29,6 @@ object Section3 {
 }
 
 object Section3Macros {
-
   inline def sum(arr: Array[Int]): Int = ~Section3.sumCodeFor('(arr))
 
   inline def sumN(inline size: Int, arr: Array[Int]): Int =
